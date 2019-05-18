@@ -1,0 +1,7 @@
+name: My Theme
+description: My custom theme
+type: theme
+core: 8.x
+libraries:
+  # Always add FontAwesome to pages rendered in our theme.
+  - mytheme/fontawesome

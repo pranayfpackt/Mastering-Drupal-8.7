@@ -1,7 +1,16 @@
 name: My Theme
-description: My custom theme
+description: My custom theme, extending Classy
 type: theme
 core: 8.x
+base theme: classy
+regions:
+  sidebar_first: Left sidebar
+  content: Content
+  header: Header
+  primary_menu: Primary menu
+  footer: Footer
+  help: Help
+  breadcrumb: Breadcrumb
 libraries:
-  # Always add FontAwesome to pages rendered in our theme.
-  - mytheme/fontawesome
+  - classy/base
+  - core/normalize

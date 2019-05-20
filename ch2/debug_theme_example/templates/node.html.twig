@@ -1,0 +1,35 @@
+{# Copied from core/modules/node/templates/node.html.twig to demo debug. #}
+
+{# You will need Twig in debug mode for this command to work #}
+{# {{ dump(theme_hook_suggestions) }} #}
+
+{# You will need to install the Kint module for the following line to work #}
+{# {{ kint(theme_hook_suggestions) }} #}
+
+{# You will need to install the Devel module for the following line to work. #}
+{# {{ devel_breakpoint() }} #}
+<article{{ attributes }}>
+
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+    {{ content }}
+  </div>
+
+</article>

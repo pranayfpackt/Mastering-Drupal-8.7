@@ -1,0 +1,10 @@
+fontawesome:
+  remote: http://fontawesome.io/
+  version: 5.8.2
+  license:
+    name: SIL OFL 1.1
+    url: http://fontawesome.io/license/
+    gpl-compatible: true
+  css:
+    base:
+      https://use.fontawesome.com/releases/v5.8.1/css/all.css: { type: external, minified: true }

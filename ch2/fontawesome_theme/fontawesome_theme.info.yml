@@ -1,0 +1,7 @@
+name: FontAwesome theme
+description: A theme which uses FontAwesome
+type: theme
+core: 8.x
+libraries:
+  # Always add FontAwesome to pages rendered in our theme.
+  - mytheme/fontawesome

@@ -1,0 +1,15 @@
+name: My Theme
+description: My custom base theme
+type: theme
+core: 8.x
+base theme: false
+regions:
+  sidebar_first: Left sidebar
+  content: Content
+  header: Header
+  primary_menu: Primary menu
+  footer: Footer
+  help: Help
+  breadcrumb: Breadcrumb
+libraries:
+  - core/normalize

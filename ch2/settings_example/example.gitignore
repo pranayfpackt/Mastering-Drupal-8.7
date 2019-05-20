@@ -1,0 +1,3 @@
+# An example gitignore for local configurations
+settings.local.php
+services.local.yml

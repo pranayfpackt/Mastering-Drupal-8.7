@@ -1,0 +1,53 @@
+<?php
+
+// ADD SCHEMA AND SAMPLE DATA FOR mymodule_example_price_field
+
+/**
+ * Implements hook_schema().
+ */
+function mymodule_schema() {
+  $schema['pricing'] = [
+    'description' => 'Pricing data field',
+    'fields' => [
+      'pid' => [
+        'description' => 'Primary Key: unique ID for pricing entries.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'amount' => [
+        'description' => 'The amount.',
+        'type' => 'numeric',
+        'precision' => 19,
+        'scale' => 6,
+      ],
+      'currency_code' => [
+        'description' => 'The currency code.',
+        'type' => 'varchar',
+        'length' => 3,
+      ],
+      'description' => [
+        'description' => 'The currency code.',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+    ],
+    'primary key' => ['pid'],
+  ];
+  return $schema;
+}
+
+function mymodule_install() {
+    $database = \Drupal::database();
+    $query = $database->insert('pricing');
+    $query->fields(['amount', 'currency_code', 'description']);
+    $values = [
+        ['amount' => 5, 'currency_code' => '$', 'description' => 'example USD price'],
+        ['amount' => 10, 'currency_code' => '$', 'description' => 'foo USD price'],
+        ['amount' => 10, 'currency_code' => '£', 'description' => 'example GBP price'],
+    ];
+    foreach ($values as $record) {
+        $query->values($record);
+    }
+    $query->execute();
+}

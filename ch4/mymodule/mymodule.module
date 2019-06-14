@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mymodule_form_node_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $form['body']['widget'][0]['#after_build'][] = 'mymodule_text_format_after_build';
+}
+
+function mymodule_text_format_after_build(
+  $element,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $element['format']['help']['about']['#attached']['library'][] = 'core/drupal.dialog.off_canvas';
+  $element['format']['help']['about']['#attributes']['class'] = 'use-ajax';
+  $element['format']['help']['about']['#attributes']['data-dialog-type'] = 'dialog';
+  $element['format']['help']['about']['#attributes']['data-dialog-renderer'] = 'off_canvas';
+  $element['format']['guidelines']['#access'] = FALSE;
+  return $element;
+}

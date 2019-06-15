@@ -21,3 +21,32 @@ function mymodule_text_format_after_build(
   $element['format']['guidelines']['#access'] = FALSE;
   return $element;
 }
+
+
+/**
+ * Implements hook_form_FORM_ID_alter() for \Drupal\user\AccountForm.
+ */
+function mymodule_form_user_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $form['#validate'][] = 'mymodule_user_mail_validate';
+  $form['#submit'][] = 'mymodule_user_offsite_submit';
+}
+
+function mymodule_user_mail_validate(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  if (strpos($form_state->getValue('mail'), '@example.com') !== FALSE) {
+    $form_state->setErrorByName('mail', 'Sorry this email is not allowed.');
+  }
+}
+
+function mymodule_user_offsite_submit(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $mail = $form_state->getValue('mail');
+  // Add the email to an offsite CRM or marketing automation tool.
+}

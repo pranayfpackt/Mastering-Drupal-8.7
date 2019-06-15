@@ -1,0 +1,7 @@
+mymodule_file_upload_form:
+  path: '/mymodule_file_upload_form'
+  defaults:
+    _form: 'Drupal\mymodule\Form\ExampleFileUploadForm'
+    _title: 'PDF Upload Example'
+  requirements:
+    _access: 'TRUE'

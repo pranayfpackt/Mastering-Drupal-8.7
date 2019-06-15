@@ -1,0 +1,7 @@
+form_states_example.example_form:
+  path: '/form-states-example'
+  defaults:
+    _form: Drupal\form_states_example\Form\ExampleForm
+    _title: 'Example Form'
+  requirements:
+    _access: 'TRUE'

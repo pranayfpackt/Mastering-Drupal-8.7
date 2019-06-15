@@ -1,0 +1,15 @@
+form_ajax.ajax_form_example:
+  path: '/ajax-form-example'
+  defaults:
+    _form: Drupal\form_ajax\Form\AjaxFormExample
+    _title: 'Example Form'
+  requirements:
+    _access: 'TRUE'
+
+form_ajax.submit_ajax_form_example:
+  path: '/counter-example'
+  defaults:
+    _form: Drupal\form_ajax\Form\TallyForm
+    _title: 'Counter Form'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mymodule_form_node_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $form['body']['widget'][0]['#after_build'][] = 'mymodule_text_format_after_build';
+}
+
+function mymodule_text_format_after_build(
+  $element,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $element['format']['help']['about']['#attached']['library'][] = 'core/drupal.dialog.off_canvas';
+  $element['format']['help']['about']['#attributes']['class'] = 'use-ajax';
+  $element['format']['help']['about']['#attributes']['data-dialog-type'] = 'dialog';
+  $element['format']['help']['about']['#attributes']['data-dialog-renderer'] = 'off_canvas';
+  $element['format']['guidelines']['#access'] = FALSE;
+  return $element;
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter() for \Drupal\user\AccountForm.
+ */
+function mymodule_form_user_form_alter(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $form['#validate'][] = 'mymodule_user_mail_validate';
+  $form['#submit'][] = 'mymodule_user_offsite_submit';
+}
+
+function mymodule_user_mail_validate(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  if (strpos($form_state->getValue('mail'), '@example.com') !== FALSE) {
+    $form_state->setErrorByName('mail', 'Sorry this email is not allowed.');
+  }
+}
+
+function mymodule_user_offsite_submit(
+  &$form,
+  \Drupal\Core\Form\FormStateInterface $form_state
+) {
+  $mail = $form_state->getValue('mail');
+  // Add the email to an offsite CRM or marketing automation tool.
+}

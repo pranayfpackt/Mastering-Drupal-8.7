@@ -45,7 +45,7 @@ class ExampleForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $message = $form_state->getValue('message');
     $this->messenger()->addStatus($this->t('You submitted: :message', [
-      ':message' => $message
+      ':message' => $message,
     ]));
   }
 }

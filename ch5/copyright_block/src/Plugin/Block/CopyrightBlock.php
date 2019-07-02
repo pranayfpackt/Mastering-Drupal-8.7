@@ -40,7 +40,7 @@ public function blockForm($form, \Drupal\Core\Form\FormStateInterface $form_stat
     '#title' => t('Company name'),
     '#default_value' => $this->configuration['company_name'],
   ];
-  return $form
+  return $form;
 }
 
 /**

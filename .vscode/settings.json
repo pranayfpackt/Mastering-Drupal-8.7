@@ -1,0 +1,6 @@
+{
+    "phpcs.composerJsonPath": "~/.composer/composer.json",
+    "phpcs.executablePath": "/Users/mglaman/.composer/vendor/bin/phpcs",
+    "phpcs.showSources": true,
+    "phpcs.standard": "Drupal"
+}

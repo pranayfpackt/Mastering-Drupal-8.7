@@ -1,0 +1,13 @@
+config_entity_example.site_announcement.*:
+  type: config_entity
+  label: 'Site announcement'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    message:
+      type: text
+      label: 'Text'

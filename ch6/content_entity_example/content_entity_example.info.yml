@@ -1,0 +1,6 @@
+name: content_entity_example
+description: Content entity type example
+core: 8.x
+type: module
+dependencies:
+  - entity

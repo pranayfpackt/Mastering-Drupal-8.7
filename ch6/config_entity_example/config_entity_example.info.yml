@@ -1,0 +1,6 @@
+name: config_entity_example
+description: Configuration entity type example
+core: 8.x
+type: module
+dependencies:
+  - entity
